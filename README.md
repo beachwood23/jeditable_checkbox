@@ -1,4 +1,4 @@
 jeditable_checkbox
 ==================
 
-Plugin for the Jeditable
+Plugin to enable a checkbox for the jQuery Jeditable plugin (http://www.appelsiini.net/projects/jeditable).
