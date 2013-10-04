@@ -1,3 +1,4 @@
+
 // add 'Checkbox' input type to Jeditable.
 $.editable.addInputType("checkbox", {
     element: function (settings, original) {
@@ -33,12 +34,12 @@ $.editable.addInputType("checkbox", {
 
         // loop to attach checkboxes
         for (var i = 0; i < dataList.length; i++) {
-            var label = $('<label for="' + dataList[i] + '"/>');
-            label.append(dataList[i]);
-
             var input = $('<input type="checkbox"/>')
-                .val(dataList[i])
-                .attr("id", dataList[i]);
+                .val(dataList[i]);
+            input.uniqueId();
+
+            var label = $('<label for="' + input.attr("id") + '"/>');
+            label.append(dataList[i]);
 
             var line = $('<br/>');
 
@@ -48,14 +49,14 @@ $.editable.addInputType("checkbox", {
                 .append(line);
 
 
-            /* bind hidden input to any checkbox click, so that the field is 
+            /* bind hidden input to any checkbox click, so that the field is
              * always current                                                  */
             input.on("click", function () {
                 setHiddenInput(this);
             });
 
             /* bind hidden input to mouse focus, so that field is populated even
-            * if no checkboxes are clicked                                     */
+             * if no checkboxes are clicked                                     */
             input.parent().on('focusin', function() {
                 setHiddenInput(this);
             });
@@ -80,3 +81,4 @@ $.editable.addInputType("checkbox", {
         });
     }
 });
+
